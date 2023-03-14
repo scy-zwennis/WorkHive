@@ -1,2 +1,2 @@
 # WorkHive
-A web application to issues and manage projects
+An issue and project tracking web appliation
