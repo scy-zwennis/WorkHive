@@ -8,7 +8,7 @@ namespace WorkHive.Data.Services
 {
     public interface IUserService
     {
-        MethodResult<string, AuthenticationErrorCode> Authenticate(string emailAddress, string password);
+        MethodResult<AuthenticationErrorCode> Authenticate(string emailAddress, string password);
         MethodResult<RegistrationErrorCodes> Register(string name, string email, string password);
     }
 
@@ -22,7 +22,7 @@ namespace WorkHive.Data.Services
             _dbContext = dbContext;
         }
 
-        public MethodResult<string, AuthenticationErrorCode> Authenticate(string email, string password)
+        public MethodResult<AuthenticationErrorCode> Authenticate(string email, string password)
         {
 
             try
@@ -38,7 +38,7 @@ namespace WorkHive.Data.Services
                     return new(AuthenticationErrorCode.PasswordInvalid);
                 }
 
-                return new("AUTHENTICATION_TOKEN");
+                return MethodResult<AuthenticationErrorCode>.Success();
             }
             catch (Exception)
             {

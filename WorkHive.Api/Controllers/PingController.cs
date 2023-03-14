@@ -1,16 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WorkHive.Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class PingController : ControllerBase
     {
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Pong"); 
+            return Ok("Pong");
+        }
+
+        [HttpGet]
+        [Route("Auth")]
+        [Authorize]
+        public IActionResult Auth()
+        {
+            return Ok();
         }
     }
 }
