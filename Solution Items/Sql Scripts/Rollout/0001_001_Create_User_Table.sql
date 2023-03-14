@@ -1,0 +1,8 @@
+CREATE TABLE [User] (
+	 [UserId]		INT				NOT NULL IDENTITY(1,1)
+	,[Name]			VARCHAR(50)		NOT NULL
+	,[EmailAddress] VARCHAR(150)	NOT NULL
+	,[PasswordHash] VARCHAR(50)		NOT NULL
+
+	,CONSTRAINT PK_User PRIMARY KEY (UserId)
+)
